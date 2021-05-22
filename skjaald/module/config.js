@@ -4,15 +4,14 @@ import {ClassFeatures} from "./classFeatures.js"
 export const SKJAALD = {};
 
 // ASCII Artwork
-SKJAALD.ASCII = ` _______  _       _________ _______  _______  _        ______     _______  _______  _______  _______  _______ 
-(  ____ \| \    /\\__    _/(  ___  )(  ___  )( \      (  __  \   (  ____ \(  ___  )(  ____ \(  ___  )(  ____ \
-| (    \/|  \  / /   )  (  | (   ) || (   ) || (      | (  \  )  | (    \/| (   ) || (    \/| (   ) || (    \/
-| (_____ |  (_/ /    |  |  | (___) || (___) || |      | |   ) |  | (_____ | (___) || |      | (___) || (_____ 
-(_____  )|   _ (     |  |  |  ___  ||  ___  || |      | |   | |  (_____  )|  ___  || | ____ |  ___  |(_____  )
-      ) ||  ( \ \    |  |  | (   ) || (   ) || |      | |   ) |        ) || (   ) || | \_  )| (   ) |      ) |
-/\____) ||  /  \ \|\_)  )  | )   ( || )   ( || (____/\| (__/  )  /\____) || )   ( || (___) || )   ( |/\____) |
-\_______)|_/    \/(____/   |/     \||/     \|(_______/(______/   \_______)|/     \|(_______)|/     \|\_______)
-                                                                                                              `;
+SKJAALD.ASCII = `_______________________________
+______      ______ _____ _____
+|  _  \\___  |  _  \\  ___|  ___|
+| | | ( _ ) | | | |___ \\| |__
+| | | / _ \\/\\ | | |   \\ \\  __|
+| |/ / (_>  < |/ //\\__/ / |___
+|___/ \\___/\\/___/ \\____/\\____/
+_______________________________`;
 
 
 /**
@@ -65,7 +64,7 @@ SKJAALD.attunementTypes = {
   NONE: 0,
   REQUIRED: 1,
   ATTUNED: 2,
-}
+};
 
 /**
  * An enumeration of item attunement states
@@ -85,6 +84,56 @@ SKJAALD.weaponProficiencies = {
   "mar": "SKJAALD.WeaponMartialProficiency"
 };
 
+/**
+ * The basic weapon types in 5e. This enables specific weapon proficiencies or
+ * starting equipment provided by classes and backgrounds.
+ *
+ * @enum {string}
+ */
+SKJAALD.weaponIds = {
+    "battleaxe": "I0WocDSuNpGJayPb",
+    "blowgun": "wNWK6yJMHG9ANqQV",
+    "club": "nfIRTECQIG81CvM4",
+    "dagger": "0E565kQUBmndJ1a2",
+    "dart": "3rCO8MTIdPGSW6IJ",
+    "flail": "UrH3sMdnUDckIHJ6",
+    "glaive": "rOG1OM2ihgPjOvFW",
+    "greataxe": "1Lxk6kmoRhG8qQ0u",
+    "greatclub": "QRCsxkCwWNwswL9o",
+    "greatsword": "xMkP8BmFzElcsMaR",
+    "halberd": "DMejWAc8r8YvDPP1",
+    "handaxe": "eO7Fbv5WBk5zvGOc",
+    "handcrossbow": "qaSro7kFhxD6INbZ",
+    "heavycrossbow": "RmP0mYRn2J7K26rX",
+    "javelin": "DWLMnODrnHn8IbAG",
+    "lance": "RnuxdHUAIgxccVwj",
+    "lightcrossbow": "ddWvQRLmnnIS0eLF",
+    "lighthammer": "XVK6TOL4sGItssAE",
+    "longbow": "3cymOVja8jXbzrdT",
+    "longsword": "10ZP2Bu3vnCuYMIB",
+    "mace": "Ajyq6nGwF7FtLhDQ",
+    "maul": "DizirD7eqjh8n95A",
+    "morningstar": "dX8AxCh9o0A9CkT3",
+    "net": "aEiM49V8vWpWw7rU",
+    "pike": "tC0kcqZT9HHAO0PD",
+    "quarterstaff": "g2dWN7PQiMRYWzyk",
+    "rapier": "Tobce1hexTnDk4sV",
+    "scimitar": "fbC0Mg1a73wdFbqO",
+    "shortsword": "osLzOwQdPtrK3rQH",
+    "sickle": "i4NeNZ30ycwPDHMx",
+    "spear": "OG4nBBydvmfWYXIk",
+    "shortbow": "GJv6WkD7D2J6rP6M",
+    "sling": "3gynWO9sN4OLGMWD",
+    "trident": "F65ANO66ckP8FDMa",
+    "warpick": "2YdfjN1PIIrSHZii",
+    "warhammer":  "F0Df164Xv1gWcYt0",
+    "whip": "QKTyxoO0YDnAsbYe"
+};
+
+/* -------------------------------------------- */
+
+
+
 SKJAALD.toolProficiencies = {
   "art": "SKJAALD.ToolArtisans",
   "disg": "SKJAALD.ToolDisguiseKit",
@@ -96,6 +145,50 @@ SKJAALD.toolProficiencies = {
   "pois": "SKJAALD.ToolPoisonersKit",
   "thief": "SKJAALD.ToolThieves",
   "vehicle": "SKJAALD.ToolVehicle"
+};
+
+/**
+ * The basic tool types in 5e. This enables specific tool proficiencies or
+ * starting equipment provided by classes and backgrounds.
+ *
+ * @enum {string}
+ */
+SKJAALD.toolIds = {
+  "alchemist": "SztwZhbhZeCqyAes",
+  "bagpipes": "yxHi57T5mmVt0oDr",
+  "brewer": "Y9S75go1hLMXUD48",
+  "calligrapher": "jhjo20QoiD5exf09",
+  "card": "YwlHI3BVJapz4a3E",
+  "carpenter": "8NS6MSOdXtUqD7Ib",
+  "cartographer": "fC0lFK8P4RuhpfaU",
+  "cobbler": "hM84pZnpCqKfi8XH",
+  "cook": "Gflnp29aEv5Lc1ZM",
+  "dice": "iBuTM09KD9IoM5L8",
+  "disg": "IBhDAr7WkhWPYLVn",
+  "drum": "69Dpr25pf4BjkHKb",
+  "dulcimer": "NtdDkjmpdIMiX7I2",
+  "flute": "eJOrPcAz9EcquyRQ",
+  "forg": "cG3m4YlHfbQlLEOx",
+  "glassblower": "rTbVrNcwApnuTz5E",
+  "herb": "i89okN7GFTWHsvPy",
+  "horn": "aa9KuBy4dst7WIW9",
+  "jeweler": "YfBwELTgPFHmQdHh",
+  "leatherworker": "PUMfwyVUbtyxgYbD",
+  "lute": "qBydtUUIkv520DT7",
+  "lyre": "EwG1EtmbgR3bM68U",
+  "mason": "skUih6tBvcBbORzA",
+  "navg": "YHCmjsiXxZ9UdUhU",
+  "painter": "ccm5xlWhx74d6lsK",
+  "panflute": "G5m5gYIx9VAUWC3J",
+  "pois": "il2GNi8C0DvGLL9P",
+  "potter": "hJS8yEVkqgJjwfWa",
+  "shawm": "G3cqbejJpfB91VhP",
+  "smith": "KndVe2insuctjIaj",
+  "thief": "woWZ1sO5IUVGzo58",
+  "tinker": "0d08g1i5WXnNrCNA",
+  "viol": "baoe3U5BfMMMxhCU",
+  "weaver": "ap9prThUB2y9lDyj",
+  "woodcarver": "xKErqkLo4ASYr5EP",
 };
 
 
@@ -171,6 +264,40 @@ SKJAALD.tokenSizes = {
   "grg": 4
 };
 
+/**
+ * Colors used to visualize temporary and temporary maximum HP in token health bars
+ * @enum {number}
+ */
+SKJAALD.tokenHPColors = {
+  temp: 0x66CCFF,
+  tempmax: 0x440066,
+  negmax: 0x550000
+}
+
+/* -------------------------------------------- */
+
+/**
+ * Creature types
+ * @type {Object}
+ */
+SKJAALD.creatureTypes = {
+  "aberration": "SKJAALD.CreatureAberration",
+  "beast": "SKJAALD.CreatureBeast",
+  "celestial": "SKJAALD.CreatureCelestial",
+  "construct": "SKJAALD.CreatureConstruct",
+  "dragon": "SKJAALD.CreatureDragon",
+  "elemental": "SKJAALD.CreatureElemental",
+  "fey": "SKJAALD.CreatureFey",
+  "fiend": "SKJAALD.CreatureFiend",
+  "giant": "SKJAALD.CreatureGiant",
+  "humanoid": "SKJAALD.CreatureHumanoid",
+  "monstrosity": "SKJAALD.CreatureMonstrosity",
+  "ooze": "SKJAALD.CreatureOoze",
+  "plant": "SKJAALD.CreaturePlant",
+  "undead": "SKJAALD.CreatureUndead"
+};
+
+
 /* -------------------------------------------- */
 
 /**
@@ -213,7 +340,7 @@ SKJAALD.limitedUsePeriods = {
 /* -------------------------------------------- */
 
 /**
- * The set of equipment types for armor, clothing, and other objects which can ber worn by the character
+ * The set of equipment types for armor, clothing, and other objects which can be worn by the character
  * @type {Object}
  */
 SKJAALD.equipmentTypes = {
@@ -307,7 +434,7 @@ SKJAALD.damageTypes = {
 };
 
 // Damage Resistance Types
-SKJAALD.damageResistanceTypes = mergeObject(duplicate(SKJAALD.damageTypes), {
+SKJAALD.damageResistanceTypes = mergeObject(foundry.utils.deepClone(SKJAALD.damageTypes), {
   "physical": "SKJAALD.DamagePhysical"
 });
 
@@ -325,7 +452,7 @@ SKJAALD.movementTypes = {
   "fly": "SKJAALD.MovementFly",
   "swim": "SKJAALD.MovementSwim",
   "walk": "SKJAALD.MovementWalk",
-}
+};
 
 /**
  * The valid units of measure for movement distances in the game system.
@@ -335,7 +462,7 @@ SKJAALD.movementTypes = {
 SKJAALD.movementUnits = {
   "ft": "SKJAALD.DistFt",
   "mi": "SKJAALD.DistMi"
-}
+};
 
 /**
  * The valid units of measure for the range of an action or effect.
@@ -425,7 +552,7 @@ SKJAALD.healingTypes = {
 
 /**
  * Enumerate the denominations of hit dice which can apply to classes
- * @type {Array.<string>}
+ * @type {string[]}
  */
 SKJAALD.hitDieTypes = ["d6", "d8", "d10", "d12"];
 
@@ -434,7 +561,7 @@ SKJAALD.hitDieTypes = ["d6", "d8", "d10", "d12"];
 
 /**
  * The set of possible sensory perception types which an Actor may have
- * @type {object}
+ * @enum {string}
  */
 SKJAALD.senses = {
   "blindsight": "SKJAALD.SenseBlindsight",
@@ -584,17 +711,25 @@ SKJAALD.spellLevels = {
 
 // Spell Scroll Compendium UUIDs
 SKJAALD.spellScrollIds = {
-  0: 'Compendium.SKJAALD.items.rQ6sO7HDWzqMhSI3',
-  1: 'Compendium.SKJAALD.items.9GSfMg0VOA2b4uFN',
-  2: 'Compendium.SKJAALD.items.XdDp6CKh9qEvPTuS',
-  3: 'Compendium.SKJAALD.items.hqVKZie7x9w3Kqds',
-  4: 'Compendium.SKJAALD.items.DM7hzgL836ZyUFB1',
-  5: 'Compendium.SKJAALD.items.wa1VF8TXHmkrrR35',
-  6: 'Compendium.SKJAALD.items.tI3rWx4bxefNCexS',
-  7: 'Compendium.SKJAALD.items.mtyw4NS1s7j2EJaD',
-  8: 'Compendium.SKJAALD.items.aOrinPg7yuDZEuWr',
-  9: 'Compendium.SKJAALD.items.O4YbkJkLlnsgUszZ'
+  0: "rQ6sO7HDWzqMhSI3",
+  1: "9GSfMg0VOA2b4uFN",
+  2: "XdDp6CKh9qEvPTuS",
+  3: "hqVKZie7x9w3Kqds",
+  4: "DM7hzgL836ZyUFB1",
+  5: "wa1VF8TXHmkrrR35",
+  6: "tI3rWx4bxefNCexS",
+  7: "mtyw4NS1s7j2EJaD",
+  8: "aOrinPg7yuDZEuWr",
+  9: "O4YbkJkLlnsgUszZ"
 };
+
+/**
+ * Compendium packs used for localized items.
+ * @enum {string}
+ */
+SKJAALD.sourcePacks = {
+  ITEMS: "SKJAALD.items"
+}
 
 /**
  * Define the standard slot progression by character level.

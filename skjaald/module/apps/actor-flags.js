@@ -1,11 +1,10 @@
 /**
  * An application class which provides advanced configuration for special character flags which modify an Actor
- * @implements {BaseEntitySheet}
+ * @implements {DocumentSheet}
  */
-export default class ActorSheetFlags extends BaseEntitySheet {
+export default class ActorSheetFlags extends DocumentSheet {
   static get defaultOptions() {
-    const options = super.defaultOptions;
-    return mergeObject(options, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       id: "actor-flags",
 	    classes: ["skjaald"],
       template: "systems/skjaald/templates/apps/actor-flags.html",
@@ -18,7 +17,7 @@ export default class ActorSheetFlags extends BaseEntitySheet {
 
   /** @override */
   get title() {
-    return `${game.i18n.localize('SJAALD.FlagsTitle')}: ${this.object.name}`;
+    return `${game.i18n.localize('SKJAALD.FlagsTitle')}: ${this.object.name}`;
   }
 
   /* -------------------------------------------- */
@@ -27,6 +26,7 @@ export default class ActorSheetFlags extends BaseEntitySheet {
   getData() {
     const data = {};
     data.actor = this.object;
+    data.classes = this._getClasses();
     data.flags = this._getFlags();
     data.bonuses = this._getBonuses();
     return data;
@@ -35,16 +35,32 @@ export default class ActorSheetFlags extends BaseEntitySheet {
   /* -------------------------------------------- */
 
   /**
+   * Prepare an object of sorted classes.
+   * @return {object}
+   * @private
+   */
+  _getClasses() {
+    const classes = this.object.items.filter(i => i.type === "class");
+    return classes.sort((a, b) => a.name.localeCompare(b.name)).reduce((obj, i) => {
+      obj[i.id] = i.name;
+      return obj;
+    }, {});
+  }
+
+  /* -------------------------------------------- */
+
+  /**
    * Prepare an object of flags data which groups flags by section
    * Add some additional data for rendering
    * @return {object}
+   * @private
    */
   _getFlags() {
     const flags = {};
-    const baseData = this.entity._data;
-    for ( let [k, v] of Object.entries(CONFIG.SJAALD.characterFlags) ) {
+    const baseData = this.document.toJSON();
+    for ( let [k, v] of Object.entries(CONFIG.SKJAALD.characterFlags) ) {
       if ( !flags.hasOwnProperty(v.section) ) flags[v.section] = {};
-      let flag = duplicate(v);
+      let flag = foundry.utils.deepClone(v);
       flag.type = v.type.name;
       flag.isCheckbox = v.type === Boolean;
       flag.isSelect = v.hasOwnProperty('choices');
@@ -63,18 +79,18 @@ export default class ActorSheetFlags extends BaseEntitySheet {
    */
   _getBonuses() {
     const bonuses = [
-      {name: "data.bonuses.mwak.attack", label: "SJAALD.BonusMWAttack"},
-      {name: "data.bonuses.mwak.damage", label: "SJAALD.BonusMWDamage"},
-      {name: "data.bonuses.rwak.attack", label: "SJAALD.BonusRWAttack"},
-      {name: "data.bonuses.rwak.damage", label: "SJAALD.BonusRWDamage"},
-      {name: "data.bonuses.msak.attack", label: "SJAALD.BonusMSAttack"},
-      {name: "data.bonuses.msak.damage", label: "SJAALD.BonusMSDamage"},
-      {name: "data.bonuses.rsak.attack", label: "SJAALD.BonusRSAttack"},
-      {name: "data.bonuses.rsak.damage", label: "SJAALD.BonusRSDamage"},
-      {name: "data.bonuses.abilities.check", label: "SJAALD.BonusAbilityCheck"},
-      {name: "data.bonuses.abilities.save", label: "SJAALD.BonusAbilitySave"},
-      {name: "data.bonuses.abilities.skill", label: "SJAALD.BonusAbilitySkill"},
-      {name: "data.bonuses.spell.dc", label: "SJAALD.BonusSpellDC"}
+      {name: "data.bonuses.mwak.attack", label: "SKJAALD.BonusMWAttack"},
+      {name: "data.bonuses.mwak.damage", label: "SKJAALD.BonusMWDamage"},
+      {name: "data.bonuses.rwak.attack", label: "SKJAALD.BonusRWAttack"},
+      {name: "data.bonuses.rwak.damage", label: "SKJAALD.BonusRWDamage"},
+      {name: "data.bonuses.msak.attack", label: "SKJAALD.BonusMSAttack"},
+      {name: "data.bonuses.msak.damage", label: "SKJAALD.BonusMSDamage"},
+      {name: "data.bonuses.rsak.attack", label: "SKJAALD.BonusRSAttack"},
+      {name: "data.bonuses.rsak.damage", label: "SKJAALD.BonusRSDamage"},
+      {name: "data.bonuses.abilities.check", label: "SKJAALD.BonusAbilityCheck"},
+      {name: "data.bonuses.abilities.save", label: "SKJAALD.BonusAbilitySave"},
+      {name: "data.bonuses.abilities.skill", label: "SKJAALD.BonusAbilitySkill"},
+      {name: "data.bonuses.spell.dc", label: "SKJAALD.BonusSpellDC"}
     ];
     for ( let b of bonuses ) {
       b.value = getProperty(this.object._data, b.name) || "";

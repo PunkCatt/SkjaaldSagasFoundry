@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "npc", "vehicle", "pet/mount"],
+    "types": ["character", "npc", "vehicle"],
     "templates": {
       "common": {
         "abilities": {
@@ -261,15 +261,12 @@
           "success": 0,
           "failure": 0
         },
-        "encumbrance": {
-          "value": null,
-          "max": null
-        },
         "exhaustion": 0,
         "inspiration": 0
       },
       "details": {
         "background": "",
+        "originalClass": "",
         "xp": {
           "value": 0,
           "min": 0,
@@ -319,7 +316,12 @@
     "npc": {
       "templates": ["common", "creature"],
       "details": {
-        "type": "",
+        "type": {
+          "value": "",
+          "subtype": "",
+          "swarm": "",
+          "custom": ""
+        },
         "environment": "",
         "cr": 1,
         "spellLevel": 0,
@@ -395,33 +397,6 @@
       "cargo": {
         "crew": [],
         "passengers": []
-      }
-    },
-    "pet/mount": {
-      "templates": ["common", "creature"],
-      "details": {
-        "type": "",
-        "environment": "",
-        "cr": 1,
-        "spellLevel": 0,
-        "xp": {
-          "value": 10
-        },
-        "source": ""
-      },
-      "resources": {
-        "legact": {
-          "value": 0,
-          "max": 0
-        },
-        "legres": {
-          "value": 0,
-          "max": 0
-        },
-        "lair": {
-          "value": 0,
-          "initiative": 0
-        }
       }
     }
   },
@@ -529,12 +504,16 @@
       "subclass": "",
       "hitDice": "d6",
       "hitDiceUsed": 0,
+      "saves": [],
       "skills": {
         "number": 2,
         "choices": [],
         "value": []
       },
-      "spellcasting": "none"
+      "spellcasting": {
+        "progression": "none",
+        "ability": ""
+      }
     },
     "consumable": {
       "templates": ["itemDescription", "physicalItem", "activatedEffect", "action"],
