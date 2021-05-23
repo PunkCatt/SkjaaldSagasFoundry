@@ -11,8 +11,8 @@ export default class ItemSheet5e extends ItemSheet {
 
     // Expand the default size of the class sheet
     if ( this.object.data.type === "class" ) {
-      this.options.width = this.position.width =  600;
-      this.options.height = this.position.height = 680;
+      this.options.width = this.position.width =  800;
+      this.options.height = this.position.height = 1000;
     }
   }
 

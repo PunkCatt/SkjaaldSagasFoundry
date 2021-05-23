@@ -265,6 +265,7 @@
 "SKJAALD.DeathSaveUnnecessary": "You do not need to roll death saves because you have a positive number of hit points or have already reached 3 successes or failures.",
 "SKJAALD.Default": "Default",
 "SKJAALD.DefaultAbilityCheck": "Default Ability Check",
+"SKJAALD.DenialPoints": "Denial Points",
 "SKJAALD.Description": "Description",
 "SKJAALD.Details": "Details",
 "SKJAALD.Dimensions": "Dimensions",
