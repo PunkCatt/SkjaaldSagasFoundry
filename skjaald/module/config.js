@@ -4,14 +4,14 @@ import {ClassFeatures} from "./classFeatures.js"
 export const SKJAALD = {};
 
 // ASCII Artwork
-SKJAALD.ASCII = `_______________________________
-______      ______ _____ _____
-|  _  \\___  |  _  \\  ___|  ___|
-| | | ( _ ) | | | |___ \\| |__
-| | | / _ \\/\\ | | |   \\ \\  __|
-| |/ / (_>  < |/ //\\__/ / |___
-|___/ \\___/\\/___/ \\____/\\____/
-_______________________________`;
+SKJAALD.ASCII = `  ____  _  __   _   _        _    _     ____   
+/ ___|| |/ /  | | / \      / \  | |   |  _ \  
+\___ \| ' /_  | |/ _ \    / _ \ | |   | | | | 
+ ___) | . \ |_| / ___ \  / ___ \| |___| |_| | 
+|____/|_|\_\___/_/   \_\/_/   \_\_____|____/  
+                                              
+
+`;
 
 
 /**
@@ -93,23 +93,25 @@ SKJAALD.weaponProficiencies = {
 SKJAALD.weaponIds = {
     "battleaxe": "I0WocDSuNpGJayPb",
     "blowgun": "wNWK6yJMHG9ANqQV",
+    "bola": "DWLMnODrnHn8IbAG",
     "club": "nfIRTECQIG81CvM4",
     "dagger": "0E565kQUBmndJ1a2",
     "dart": "3rCO8MTIdPGSW6IJ",
     "flail": "UrH3sMdnUDckIHJ6",
     "glaive": "rOG1OM2ihgPjOvFW",
     "greataxe": "1Lxk6kmoRhG8qQ0u",
+    "greatbow": "ruDHgl2ec7jPVmh9",
     "greatclub": "QRCsxkCwWNwswL9o",
     "greatsword": "xMkP8BmFzElcsMaR",
     "halberd": "DMejWAc8r8YvDPP1",
     "handaxe": "eO7Fbv5WBk5zvGOc",
     "handcrossbow": "qaSro7kFhxD6INbZ",
     "heavycrossbow": "RmP0mYRn2J7K26rX",
-    "javelin": "DWLMnODrnHn8IbAG",
     "lance": "RnuxdHUAIgxccVwj",
     "lightcrossbow": "ddWvQRLmnnIS0eLF",
     "lighthammer": "XVK6TOL4sGItssAE",
     "longbow": "3cymOVja8jXbzrdT",
+    "longknife": "r8KOiJqCfN4S2Rex",
     "longsword": "10ZP2Bu3vnCuYMIB",
     "mace": "Ajyq6nGwF7FtLhDQ",
     "maul": "DizirD7eqjh8n95A",
@@ -641,11 +643,15 @@ SKJAALD.spellScalingModes = {
 SKJAALD.weaponTypes = {
   "simpleM": "SKJAALD.WeaponSimpleM",
   "simpleR": "SKJAALD.WeaponSimpleR",
+  "basic": "SKJAALD.WeaponBasic",
+  "combat": "SKJAALD.WeaponCombat",
   "martialM": "SKJAALD.WeaponMartialM",
   "martialR": "SKJAALD.WeaponMartialR",
+  "elite": "SKJAALD.WeaponElite",
+  "magitech": "SKJAALD.WeaponMagitech",
   "natural": "SKJAALD.WeaponNatural",
   "improv": "SKJAALD.WeaponImprov",
-  "siege": "SKJAALD.WeaponSiege"
+  "siege": "SKJAALD.WeaponSiege",
 };
 
 
@@ -656,23 +662,38 @@ SKJAALD.weaponTypes = {
  * @type {Object}
  */
 SKJAALD.weaponProperties = {
+  "acc": "SKJAALD.WeaponPropertiesAcc",
   "ada": "SKJAALD.WeaponPropertiesAda",
   "amm": "SKJAALD.WeaponPropertiesAmm",
+  "arp": "SKJAALD.WeaponPropertiesArp",
+  "bal": "SKJAALD.WeaponPropertiesBal",
+  "clv": "SKJAALD.WeaponPropertiesClv",
+  "def": "SKJAALD.WeaponPropertiesDef",
+  "dem": "SKJAALD.WeaponPropertiesDem",
   "fin": "SKJAALD.WeaponPropertiesFin",
   "fir": "SKJAALD.WeaponPropertiesFir",
   "foc": "SKJAALD.WeaponPropertiesFoc",
+  "gre": "SKJAALD.WeaponPropertiesGre",
   "hvy": "SKJAALD.WeaponPropertiesHvy",
+  "hef": "SKJAALD.WeaponPropertiesHef",
+  "ind": "SKJAALD.WeaponPropertiesInd",
+  "ken": "SKJAALD.WeaponPropertiesKen",
   "lgt": "SKJAALD.WeaponPropertiesLgt",
   "lod": "SKJAALD.WeaponPropertiesLod",
   "mgc": "SKJAALD.WeaponPropertiesMgc",
+  "pen": "SKJAALD.WeaponPropertiesPen",
   "rch": "SKJAALD.WeaponPropertiesRch",
+  "rli": "SKJAALD.WeaponPropertiesRli",
   "rel": "SKJAALD.WeaponPropertiesRel",
   "ret": "SKJAALD.WeaponPropertiesRet",
+  "sie": "SKJAALD.WeaponPropertiesSie",
   "sil": "SKJAALD.WeaponPropertiesSil",
   "spc": "SKJAALD.WeaponPropertiesSpc",
   "thr": "SKJAALD.WeaponPropertiesThr",
   "two": "SKJAALD.WeaponPropertiesTwo",
-  "ver": "SKJAALD.WeaponPropertiesVer"
+  "Unw": "SKJAALD.WeaponPropertiesUnw",
+  "ver": "SKJAALD.WeaponPropertiesVer",
+  "vis": "SKJAALD.WeaponPropertiesVis"
 };
 
 
@@ -686,13 +707,26 @@ SKJAALD.spellComponents = {
 // Spell Schools
 SKJAALD.spellSchools = {
   "abj": "SKJAALD.SchoolAbj",
+  "bio": "SKJAALD.SchoolBio",
   "con": "SKJAALD.SchoolCon",
   "div": "SKJAALD.SchoolDiv",
   "enc": "SKJAALD.SchoolEnc",
   "evo": "SKJAALD.SchoolEvo",
   "ill": "SKJAALD.SchoolIll",
   "nec": "SKJAALD.SchoolNec",
-  "trs": "SKJAALD.SchoolTrs"
+  "trs": "SKJAALD.SchoolTrs",
+  "nature": "SKJAALD.SchoolNat",
+  "divine": "SKJAALD.SchoolDivine"
+};
+
+// Spell Pillars
+SKJAALD.spellPillars = {
+  "arcane": "SKJAALD.PillarArcane",
+  "mass": "SKJAALD.PillarMass",
+  "essence": "SKJAALD.PillarEssence",
+  "psionic": "SKJAALD.PillarPsionic",
+  "nature": "SKJAALD.PillarNature",
+  "divine": "SKJAALD.PillarDivine"
 };
 
 // Spell Levels
@@ -706,7 +740,10 @@ SKJAALD.spellLevels = {
   6: "SKJAALD.SpellLevel6",
   7: "SKJAALD.SpellLevel7",
   8: "SKJAALD.SpellLevel8",
-  9: "SKJAALD.SpellLevel9"
+  9: "SKJAALD.SpellLevel9",
+  10: "SKJAALD.SpellLevel10",
+  11: "SKJAALD.SpellLevel11",
+  12: "SKJAALD.SpellLevel12"
 };
 
 // Spell Scroll Compendium UUIDs
@@ -788,7 +825,8 @@ SKJAALD.proficiencyLevels = {
   0: "SKJAALD.NotProficient",
   1: "SKJAALD.Proficient",
   0.5: "SKJAALD.HalfProficient",
-  2: "SKJAALD.Expertise"
+  2: "SKJAALD.Expertise",
+  3: "SKJAALD.Mastery"
 };
 
 /* -------------------------------------------- */
@@ -811,18 +849,28 @@ SKJAALD.cover = {
 // Condition Types
 SKJAALD.conditionTypes = {
   "blinded": "SKJAALD.ConBlinded",
+  "casting": "SKJAALD.ConCasting",
   "charmed": "SKJAALD.ConCharmed",
+  "concentration": "SKJAALD.ConConcentration",
+  "dashing": "SKJAALD.ConDashing",
   "deafened": "SKJAALD.ConDeafened",
+  "disengage": "SKJAALD.ConDisengage",
+  "dodging": "SKJAALD.ConDodging",
   "diseased": "SKJAALD.ConDiseased",
   "exhaustion": "SKJAALD.ConExhaustion",
   "frightened": "SKJAALD.ConFrightened",
   "grappled": "SKJAALD.ConGrappled",
+  "helping": "SKJAALD.ConHelping",
+  "hidden": "SKJAALD.ConHidden",
   "incapacitated": "SKJAALD.ConIncapacitated",
   "invisible": "SKJAALD.ConInvisible",
+  "overwatch": "SKJAALD.ConOverwatch",
   "paralyzed": "SKJAALD.ConParalyzed",
   "petrified": "SKJAALD.ConPetrified",
   "poisoned": "SKJAALD.ConPoisoned",
   "prone": "SKJAALD.ConProne",
+  "rage": "SKJAALD.ConRage",
+  "readied": "SKJAALD.ConReadied",
   "restrained": "SKJAALD.ConRestrained",
   "stunned": "SKJAALD.ConStunned",
   "unconscious": "SKJAALD.ConUnconscious"
@@ -833,13 +881,16 @@ SKJAALD.languages = {
   "common": "SKJAALD.LanguagesCommon",
   "aarakocra": "SKJAALD.LanguagesAarakocra",
   "abyssal": "SKJAALD.LanguagesAbyssal",
+  "ancientdraconic": "SKJAALD.LanguagesAncientDraconic",
   "aquan": "SKJAALD.LanguagesAquan",
   "auran": "SKJAALD.LanguagesAuran",
+  "bollgan": "SKJAALD.LanguagesBollgan",
   "celestial": "SKJAALD.LanguagesCelestial",
   "deep": "SKJAALD.LanguagesDeepSpeech",
   "draconic": "SKJAALD.LanguagesDraconic",
   "druidic": "SKJAALD.LanguagesDruidic",
   "dwarvish": "SKJAALD.LanguagesDwarvish",
+  "elenic": "SKJAALD.LanguagesElenic",
   "elvish": "SKJAALD.LanguagesElvish",
   "giant": "SKJAALD.LanguagesGiant",
   "gith": "SKJAALD.LanguagesGith",
@@ -851,10 +902,14 @@ SKJAALD.languages = {
   "infernal": "SKJAALD.LanguagesInfernal",
   "orc": "SKJAALD.LanguagesOrc",
   "primordial": "SKJAALD.LanguagesPrimordial",
+  "reikish": "SKJAALD.LanguagesReikish",
+  "skarrian": "SKJAALD.LanguagesSkarrian",
   "sylvan": "SKJAALD.LanguagesSylvan",
+  "telmathian": "SKJAALD.LanguagesTelmathian",
   "terran": "SKJAALD.LanguagesTerran",
   "cant": "SKJAALD.LanguagesThievesCant",
-  "undercommon": "SKJAALD.LanguagesUndercommon"
+  "undercommon": "SKJAALD.LanguagesUndercommon",
+  "vormish": "SKJAALD.LanguagesVormish"
 };
 
 // Character Level XP Requirements
