@@ -2,7 +2,7 @@
   "name": "skjaald",
   "title": "Skjaald",
   "description": "A system for playing within Todd Cain's homebrew world of Skjaald using the Foundry Virtual Tabletop environment.",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "PunkCat",
   "scripts": [],
   "esmodules": ["skjaald.js"],
