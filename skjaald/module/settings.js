@@ -54,7 +54,7 @@ export const registerSystemSettings = function() {
     hint: "SETTINGS.5eInitTBL",
     scope: "world",
     config: true,
-    default: false,
+    default: true,
     type: Boolean
   });
 

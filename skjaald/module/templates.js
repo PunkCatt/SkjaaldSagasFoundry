@@ -14,6 +14,7 @@ export const preloadHandlebarsTemplates = async function() {
     "systems/skjaald/templates/actors/parts/actor-inventory.html",
     "systems/skjaald/templates/actors/parts/actor-features.html",
     "systems/skjaald/templates/actors/parts/actor-spellbook.html",
+    "systems/skjaald/templates/actors/parts/actor-notes.html",
 
     // Item Sheet Partials
     "systems/skjaald/templates/items/parts/item-action.html",
