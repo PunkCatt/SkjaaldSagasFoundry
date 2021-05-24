@@ -347,17 +347,18 @@
                             </select>
                         </div>
                     </div>
-
-                    {% comment %} <div class="form-group">
-                        <label class="flexcol">{{ localize "SKJAALD.Height" }}</label>
+                    <div class="form-group input-select">
+                        <label>{{ localize "SKJAALD.Weight" }}</label>
                         <div class="form-fields">
-                            <input type="text" name="data.details.height" value="{{data.details.height}}" placeholder="{{ localize 'SKJAALD.Height' }}"/>
-                        </div>
-                    </div> {% endcomment %}
-                    <div class="form-group">
-                        <label class="flexcol">{{ localize "SKJAALD.Weight" }}</label>
-                        <div class="form-fields">
-                            <input type="text" name="data.details.weight" value="{{data.details.weight}}" placeholder="{{ localize 'SKJAALD.Weight' }}"/>
+                            <input type="text" name="data.details.weight" value="{{data.details.weight}}" placeholder=" - "/>
+                            <select name="data.details.weighttext">
+                                <option value selected></option>
+                                <option value="verythin">Very Thin</option>
+                                <option value="thin">Thin</option>
+                                <option value="average">Average</option>
+                                <option value="fat">Fat</option>
+                                <option value="veryfat">Very Fat</option>
+                            </select>
                         </div>
                     </div>
                 </div>
