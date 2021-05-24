@@ -1,14 +1,4 @@
 <div class="traits">
-    <div class="form-group">
-        <label>{{localize "SKJAALD.Size"}}</label>
-        <select class="actor-size" name="data.traits.size">
-            {{#select data.traits.size}}
-            {{#each config.actorSizes as |label size|}}
-                <option value="{{size}}">{{label}}</option>
-            {{/each}}
-            {{/select}}
-        </select>
-    </div>
 
     {{#unless isVehicle}}
     <div class="form-group">
