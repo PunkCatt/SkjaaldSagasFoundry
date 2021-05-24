@@ -272,49 +272,63 @@
                     <div class="form-group">
                         <label class="flexcol">{{ localize "SKJAALD.CharTitle" }}</label>
                         <div class="form-fields">
-                            <input class="flexcol" type="text" name= "data.details.chartitle" value="{{data.details.chartitle}}"></input>
+                            <input class="flexcol" type="text" name= "data.details.chartitle" value="{{data.details.chartitle}}" placeholder=" - "></input>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="flexcol">{{ localize "SKJAALD.Race" }}</label>
                         <div class="form-fields">
-                            <input class="flexcol" type="text" name="data.details.race" value="{{data.details.race}}" placeholder="{{ localize "SKJAALD.Race" }}"></input>
+                            <input class="flexcol" type="text" name="data.details.race" value="{{data.details.race}}" placeholder=" - "></input>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="flexcol">{{ localize "SKJAALD.Eyes" }}</label>
                         <div class="form-fields">
-                            <input class="flexcol" type="text" name="data.details.eyes" value="{{data.details.eyes}}" placeholder="{{ localize "SKJAALD.Eyes" }}"></input>
+                            <input class="flexcol" type="text" name="data.details.eyes" value="{{data.details.eyes}}" placeholder=" - "></input>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="flexcol">{{ localize "SKJAALD.Hair" }}</label>
                         <div class="form-fields">
-                            <input class="flexcol" type="text" name="data.details.hair" value="{{data.details.hair}}" placeholder="{{ localize "SKJAALD.Hair" }}"></input>
+                            <input class="flexcol" type="text" name="data.details.hair" value="{{data.details.hair}}" placeholder=" - "></input>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="flexcol">{{ localize "SKJAALD.Alignment" }}</label>
                         <div class="form-fields">
-                            <input type="text" name="data.details.alignment" value="{{data.details.alignment}}" placeholder="{{ localize 'SKJAALD.Alignment' }}"/>
+                            <input type="text" name="data.details.alignment" value="{{data.details.alignment}}" placeholder=" - "/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="flexcol">{{ localize "SKJAALD.Honor" }}</label>
                         <div class="form-fields">
-                            <input type="text" name="data.details.honor" value="{{data.details.honor}}" placeholder="{{ localize 'SKJAALD.Honor' }}"/>
+                            <input type="text" name="data.details.honor" value="{{data.details.honor}}" placeholder=" - "/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="flexcol">{{ localize "SKJAALD.Morality" }}</label>
                         <div class="form-fields">
-                            <input type="text" name="data.details.morality" value="{{data.details.morality}}" placeholder="{{ localize 'SKJAALD.Morality' }}"/>
+                            <input type="text" name="data.details.morality" value="{{data.details.morality}}" placeholder=" - "/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="flexcol">{{ localize "SKJAALD.Age" }}</label>
                         <div class="form-fields">
-                            <input type="text" name="data.details.age" value="{{data.details.age}}" placeholder="{{ localize 'SKJAALD.Age' }}"/>
+                            <input type="text" name="data.details.age" value="{{data.details.age}}" placeholder=" - "/>
+                        </div>
+                    </div>
+                    <div class="form-group input-select">
+                        <label>{{ localize "SKJAALD.Age" }}</label>
+                        <div class="form-fields">
+                            <input type="text" name="data.details.age" value="{{data.details.age}}" placeholder=" - "/>
+                            <select name="data.details.agerange">
+                                <option value selected></option>
+                                <option value="youngadult">Young Adult</option>
+                                <option value="earlymid">Early-mid Age</option>
+                                <option value="latemid">Late-mid Age</option>
+                                <option value="old">Old</option>
+                                <option value="veryold">Very Old</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -330,7 +344,7 @@
                     <div class="form-group">
                         <label class="flexcol">{{ localize "SKJAALD.Build" }}</label>
                         <div class="form-fields">
-                            <input type="text" name="data.details.build" value="{{data.details.build}}" placeholder="{{ localize 'SKJAALD.Build' }}"/>
+                            <input type="text" name="data.details.build" value="{{data.details.build}}" placeholder=" - "/>
                         </div>
                     </div>
                     <div class="form-group input-select">
