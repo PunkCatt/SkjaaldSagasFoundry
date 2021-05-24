@@ -6,7 +6,7 @@
 
         <div class="header-details flexrow">
             <h1 class="charname">
-                <input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'SKJAALDJ.ClassName' }}"/>
+                <input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'SKJAALD.ClassName' }}"/>
             </h1>
 
             <div class="item-subtitle">
@@ -16,7 +16,7 @@
 
             <ul class="summary flexrow">
                 <li>
-                    <input type="text" name="data.source" value="{{data.source}}" placeholder="{{ localize 'SKJAALDJ.Source' }}"/>
+                    <input type="text" name="data.source" value="{{data.source}}" placeholder="{{ localize 'SKJAALD.Source' }}"/>
                 </li>
             </ul>
         </div>
@@ -24,8 +24,8 @@
 
     {{!-- Item Sheet Navigation --}}
     <nav class="sheet-navigation tabs" data-group="primary">
-        <a class="item active" data-tab="description">{{ localize "SKJAALDJ.Description" }}</a>
-        <a class="item" data-tab="details">{{ localize "SKJAALDJ.Details" }}</a>
+        <a class="item active" data-tab="description">{{ localize "SKJAALD.Description" }}</a>
+        <a class="item" data-tab="details">{{ localize "SKJAALD.Details" }}</a>
     </nav>
 
     {{!-- Item Sheet Body --}}
@@ -41,7 +41,7 @@
 
             {{!-- Class Levels --}}
             <div class="form-group">
-                <label>{{ localize "SKJAALDJ.ClassLevels" }}</label>
+                <label>{{ localize "SKJAALD.ClassLevels" }}</label>
                 <div class="form-fields">
                     <input type="text" name="data.levels" value="{{data.levels}}" data-dtype="Number"/>
                 </div>
@@ -49,7 +49,7 @@
 
             {{!-- Subclass Name --}}
             <div class="form-group">
-                <label>{{ localize "SKJAALDJ.SubclassName" }}</label>
+                <label>{{ localize "SKJAALD.SubclassName" }}</label>
                 <div class="form-fields">
                     <input type="text" name="data.subclass" value="{{data.subclass}}"/>
                 </div>
@@ -57,7 +57,7 @@
 
             {{!-- Class Hit Dice --}}
             <div class="form-group">
-                <label>{{localize "SKJAALDJ.HitDice"}}</label>
+                <label>{{localize "SKJAALD.HitDice"}}</label>
                 <div class="form-fields">
                     <select name="data.hitDice">
                         {{#select data.hitDice}}
@@ -70,7 +70,7 @@
             </div>
 
             <div class="form-group">
-                <label>{{localize "SKJAALDJ.HitDiceUsed"}}</label>
+                <label>{{localize "SKJAALD.HitDiceUsed"}}</label>
                 <div class="form-fields">
                     <input type="text" placeholder="0" name="data.hitDiceUsed" value="{{data.hitDiceUsed}}" data-dtype="Number"/>
                 </div>
@@ -78,7 +78,7 @@
 
             {{!-- Spellcasting --}}
             <div class="form-group">
-                <label>{{localize 'SKJAALDJ.SpellProgression'}}</label>
+                <label>{{localize 'SKJAALD.SpellProgression'}}</label>
                 <div class="form-fields">
                     <select name="data.spellcasting.progression">
                         {{selectOptions config.spellProgression selected=data.spellcasting.progression localize=true}}
@@ -87,7 +87,7 @@
             </div>
 
             <div class="form-group">
-                <label>{{localize "SKJAALDJ.SpellAbility"}}</label>
+                <label>{{localize "SKJAALD.SpellAbility"}}</label>
                 <div class="form-fields">
                     <select name="data.spellcasting.ability">
                         {{selectOptions config.abilities selected=data.spellcasting.ability blank=""}}
@@ -98,7 +98,7 @@
             {{!-- Proficiencies --}}
             <div class="form-group">
                 <label>
-                    {{ localize "SKJAALDJ.ClassSaves" }}
+                    {{ localize "SKJAALD.ClassSaves" }}
                     {{#if editable}}
                     <a class="trait-selector class-saves" data-target="data.saves" data-options="saves">
                         <i class="fas fa-edit"></i>
@@ -116,7 +116,7 @@
 
             {{!-- Level 1 skills --}}
             <div class="form-group">
-                <label>{{localize "SKJAALDJ.ClassSkillsNumber"}}</label>
+                <label>{{localize "SKJAALD.ClassSkillsNumber"}}</label>
                 <div class="form-fields">
                     <input type="text" placeholder="0" name="data.skills.number" value="{{data.skills.number}}" data-dtype="Number"/>
                 </div>
@@ -124,7 +124,7 @@
 
             <div class="form-group">
                 <label>
-                    {{localize "SKJAALDJ.ClassSkillsChosen"}}
+                    {{localize "SKJAALD.ClassSkillsChosen"}}
                     {{#if editable }}
                     <a class="trait-selector class-skills" data-target="data.skills" data-options="skills">
                         <i class="fas fa-edit"></i></a>
