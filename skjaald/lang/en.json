@@ -797,6 +797,9 @@
 "SKJAALD.PillarNature": "Nature",
 "SKJAALD.PillarDivine": "Divine",
 "SKJAALD.spell": "spell",
+"SKJAALD.Location": "Location",
+"SKJAALD.Standing": "Standing",
+
 
 "SETTINGS.5eAllowPolymorphingL": "Allow players to polymorph their own actors.",
 "SETTINGS.5eAllowPolymorphingN": "Allow Polymorphing",
