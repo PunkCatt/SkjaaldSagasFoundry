@@ -268,10 +268,12 @@
             </div>
             <div class="characteristics flexcol">
                 <label>{{ localize "SKJAALD.CharacterDetails" }}</label>
-                <div class="form-group">
-                    <label>{{ localize "SKJAALD.CharTitle" }}</label>
-                    <div class="form-fields">
-                        <input type="text" name="data.details.chartitle">{{data.details.chartitle}}</input>
+                <div>
+                    <div class="form-group">
+                        <label class="flexcol">{{ localize "SKJAALD.CharTitle" }}</label>
+                        <div class="form-fields">
+                            <input class="flexcol" type="text" name="data.details.chartitle">{{data.details.chartitle}}</input>
+                        </div>
                     </div>
                 </div>
                 <label>{{ localize "SKJAALD.Secrets" }}</label>
