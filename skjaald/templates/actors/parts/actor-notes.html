@@ -1,3 +1,30 @@
+<div class="inventory-filters flexrow">
+
+    {{#unless isNPC}}
+    <ol class="currency flexrow">
+        <h3>
+            {{localize "SKJAALD.Currency"}}
+            <a class="currency-convert rollable" data-action="convertCurrency" title="Convert Currency">
+                <i class="fas fa-coins"></i>
+            </a>
+        </h3>
+        {{#each data.currency as |v k|}}
+        <label class="denomination {{k}}">{{ lookup ../config.currencies k }}</label>
+        <input type="text" name="data.currency.{{k}}" value="{{v}}" data-dtype="Number"/>
+        {{/each}}
+    </ol>
+    {{/unless}}
+
+    {{#unless isVehicle}}
+    <ul class="filter-list flexrow" data-filter="inventory">
+        <li class="filter-item" data-filter="action">{{localize "SKJAALD.Action"}}</li>
+        <li class="filter-item" data-filter="bonus">{{localize "SKJAALD.BonusAction"}}</li>
+        <li class="filter-item" data-filter="reaction">{{localize "SKJAALD.Reaction"}}</li>
+        <li class="filter-item" data-filter="equipped">{{localize "SKJAALD.Equipped"}}</li>
+    </ul>
+    {{/unless}}
+</div>
+
 <ol class="items-list inventory-list">
 {{#each sections as |section sid|}}
     <li class="items-header flexrow">
@@ -9,11 +36,11 @@
             {{/each}}
         {{else}}
             {{#if ../isCharacter}}
-                <div class="item-detail item-weight">{{localize "SKJAALD.Type"}}</div>
+                <div class="item-detail item-weight">{{localize "SKJAALD.Weight"}}</div>
             {{/if}}
 
-            <div class="item-detail item-uses">{{localize "SKJAALD.Location"}}</div>
-            <div class="item-detail item-action">{{localize "SKJAALD.Standing"}}</div>
+            <div class="item-detail item-uses">{{localize "SKJAALD.Charges"}}</div>
+            <div class="item-detail item-action">{{localize "SKJAALD.Usage"}}</div>
         {{/if}}
 
         {{#if ../owner}}
@@ -100,4 +127,18 @@
     {{/each}}
     </ol>
 {{/each}}
-</ol>f
+</ol>
+
+
+{{#unless isNPC}}
+{{#with data.attributes.encumbrance}}
+<div class="encumbrance {{#if encumbered}}encumbered{{/if}}">
+    <span class="encumbrance-bar" style="width:{{pct}}%"></span>
+    <span class="encumbrance-label">{{value}} / {{max}}</span>
+    <i class="encumbrance-breakpoint encumbrance-33 arrow-up"></i>
+    <i class="encumbrance-breakpoint encumbrance-33 arrow-down"></i>
+    <i class="encumbrance-breakpoint encumbrance-66 arrow-up"></i>
+    <i class="encumbrance-breakpoint encumbrance-66 arrow-down"></i>
+</div>
+{{/with}}
+{{/unless}}
