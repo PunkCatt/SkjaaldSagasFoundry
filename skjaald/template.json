@@ -281,7 +281,15 @@
         "habits": "",
         "family": "",
         "quest": "",
-        "chartitle": ""
+        "chartitle": "",
+        "eyes": "",
+        "hair": "",
+        "honor": 0,
+        "morality": 0,
+        "age": "",
+        "build": "",
+        "height": "",
+        "weight": ""
       },
       "resources": {
         "primary": {
