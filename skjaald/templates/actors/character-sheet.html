@@ -36,7 +36,7 @@
                     <input type="text" name="data.details.background" value="{{data.details.background}}" placeholder="{{ localize 'SKJAALD.Background' }}"/>
                 </li>
                 <li>
-                    <input type="text" name="data.details.alignment" value="{{data.details.alignment}}" placeholder="{{ localize 'SKJAALD.Alignment' }}"/>
+                    <input type="text" value="{{data.details.alignment}}" placeholder="{{ localize 'SKJAALD.Alignment' }}"/>
                 </li>
                 <li class="proficiency">
                     <span>{{ localize "SKJAALD.Proficiency" }} {{numberFormat data.attributes.prof decimals=0 sign=true}}</span>
@@ -279,6 +279,36 @@
                         <label class="flexcol">{{ localize "SKJAALD.Race" }}</label>
                         <div class="form-fields">
                             <input class="flexcol" type="text" name="data.details.race" value="{{data.details.race}}" placeholder="{{ localize "SKJAALD.Race" }}"></input>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="flexcol">{{ localize "SKJAALD.Eyes" }}</label>
+                        <div class="form-fields">
+                            <input class="flexcol" type="text" name="data.details.eyes" value="{{data.details.eyes}}" placeholder="{{ localize "SKJAALD.Race" }}"></input>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="flexcol">{{ localize "SKJAALD.Hair" }}</label>
+                        <div class="form-fields">
+                            <input class="flexcol" type="text" name="data.details.hair" value="{{data.details.hair}}" placeholder="{{ localize "SKJAALD.Race" }}"></input>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="flexcol">{{ localize "SKJAALD.Alignment" }}</label>
+                        <div class="form-fields">
+                            <input type="text" name="data.details.alignment" value="{{data.details.alignment}}" placeholder="{{ localize 'SKJAALD.Alignment' }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="flexcol">{{ localize "SKJAALD.Honor" }}</label>
+                        <div class="form-fields">
+                            <input type="text" name="data.details.honor" value="{{data.details.honor}}" placeholder="{{ localize 'SKJAALD.Alignment' }}"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="flexcol">{{ localize "SKJAALD.Morality" }}</label>
+                        <div class="form-fields">
+                            <input type="text" name="data.details.morality" value="{{data.details.morality}}" placeholder="{{ localize 'SKJAALD.Alignment' }}"/>
                         </div>
                     </div>
                 </div>
