@@ -207,7 +207,7 @@ export default class Item5e extends Item {
 
       // Range Label
       let rng = data.range || {};
-      if (["none", "touch", "self"].includes(rng.units) || (rng.value === 0)) {
+      if ( ["none", "touch", "self"].includes(rng.units) ) {
         rng.value = null;
         rng.long = null;
       }
@@ -269,7 +269,7 @@ export default class Item5e extends Item {
    */
   getDerivedDamageLabel() {
     const itemData = this.data.data;
-    if ( !this.hasAttack || !itemData || !this.isOwned ) return [];
+    if ( !this.hasDamage || !itemData || !this.isOwned ) return [];
 
     const rollData = this.getRollData();
 
@@ -469,7 +469,7 @@ export default class Item5e extends Item {
 
     // Commit pending data updates
     if ( !foundry.utils.isObjectEmpty(itemUpdates) ) await item.update(itemUpdates);
-    if ( consumeQuantity && (id.quantity === 0) ) await item.delete();
+    if ( consumeQuantity && (item.data.data.quantity === 0) ) await item.delete();
     if ( !foundry.utils.isObjectEmpty(actorUpdates) ) await actor.update(actorUpdates);
     if ( !foundry.utils.isObjectEmpty(resourceUpdates) ) {
       const resource = actor.items.get(id.consume?.target);
@@ -1236,7 +1236,7 @@ export default class Item5e extends Item {
 
     // Get the Item from stored flag data or by the item ID on the Actor
     const storedData = message.getFlag("skjaald", "itemData");
-    const item = storedData ? new this.constructor(storedData, {parent: actor}) : actor.items.get(card.dataset.itemId);
+    const item = storedData ? new this(storedData, {parent: actor}) : actor.items.get(card.dataset.itemId);
     if ( !item ) {
       return ui.notifications.error(game.i18n.format("SKJAALD.ActionWarningNoItem", {item: card.dataset.itemId, name: actor.name}))
     }
@@ -1338,15 +1338,20 @@ export default class Item5e extends Item {
     if ( !this.isEmbedded || (this.parent.type === "vehicle") ) return;
     const actorData = this.parent.data;
     const isNPC = this.parent.type === "npc";
+    let updates;
     switch (data.type) {
       case "equipment":
-        return this._onCreateOwnedEquipment(data, actorData, isNPC);
+        updates = this._onCreateOwnedEquipment(data, actorData, isNPC);
+        break;
       case "weapon":
-        return this._onCreateOwnedWeapon(data, actorData, isNPC);
+        updates = this._onCreateOwnedWeapon(data, actorData, isNPC);
+        break;
       case "spell":
-        return this._onCreateOwnedSpell(data, actorData, isNPC);
+        updates = this._onCreateOwnedSpell(data, actorData, isNPC);
+        break;
     }
-  }
+    if (updates) return this.data.update(updates);
+    }
 
   /* -------------------------------------------- */
 
@@ -1437,7 +1442,7 @@ export default class Item5e extends Item {
         updates["data.proficient"] = (armorProf === true) || actorArmorProfs.includes(armorProf);
       }
     }
-    foundry.utils.mergeObject(data, updates);
+    return updates;
   }
 
   /* -------------------------------------------- */
@@ -1451,7 +1456,7 @@ export default class Item5e extends Item {
     if ( foundry.utils.getProperty(data, "data.proficient") === undefined ) {
       updates["data.prepared"] = isNPC;       // NPCs automatically prepare spells
     }
-    foundry.utils.mergeObject(data, updates);
+    return updates;
   }
 
   /* -------------------------------------------- */
@@ -1480,7 +1485,7 @@ export default class Item5e extends Item {
         updates["data.proficient"] = (weaponProf === true) || actorWeaponProfs.includes(weaponProf);
       }
     }
-    foundry.utils.mergeObject(data, updates);
+    return updates;
   }
 
   /* -------------------------------------------- */

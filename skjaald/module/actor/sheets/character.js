@@ -184,7 +184,7 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
    */
 	activateListeners(html) {
     super.activateListeners(html);
-    if ( !this.options.editable ) return;
+    if ( !this.isEditable ) return;
 
     // Item State Toggling
     html.find('.item-toggle').click(this._onToggleItem.bind(this));
