@@ -15,8 +15,8 @@ export default class ActorSheet5eCharacter extends ActorSheet5e {
 	static get defaultOptions() {
 	  return mergeObject(super.defaultOptions, {
       classes: ["skjaald", "sheet", "actor", "character"],
-      width: 720,
-      height: 680
+      width: 700,
+      height: 800
     });
   }
 
